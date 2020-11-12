@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'state_interface'
+require_relative '../Logic/valera'
+require_relative '../Logic/action'
 
 # Class for handling game logic
 class GameState < StateInterface
