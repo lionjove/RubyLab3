@@ -3,9 +3,11 @@
 require_relative 'States/game_state'
 require_relative 'States/main_menu_state'
 require_relative 'States/game_exit_state'
+require_relative 'States/save_menu_state'
 
 states = [
   MainMenuState.new,
+  SaveMenuState.new,
   GameState.new,
   GameExitState.new
 ]

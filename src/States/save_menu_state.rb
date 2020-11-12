@@ -3,7 +3,7 @@
 require_relative 'state_interface'
 
 # Class for handling main menu logic
-class MainMenuState < StateInterface
+class SaveMenuState < StateInterface
   def state_name
     'SaveMenuState'
   end
