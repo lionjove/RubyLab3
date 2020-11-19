@@ -1,0 +1,14 @@
+{
+	"rules": [{
+		"Пойти на работу": [{
+			"expession": "mana < 50 && fatigue < 10",
+			"actions": [{
+				"health": "0",
+				"mana": "-30",
+				"cheerfulness": "-5",
+				"fatigue": "+70",
+				"money": "+100"
+			}]
+		}]
+	}]
+}
