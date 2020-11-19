@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+require 'FileUtils'
+
 require_relative 'States/game_state'
 require_relative 'States/main_menu_state'
 require_relative 'States/game_exit_state'
 require_relative 'States/save_menu_state'
+
+# create directory for saves
+FileUtils.mkdir_p("#{File.expand_path('~')}/Documents/ValeraSaves")
 
 states = [
   MainMenuState.new,
