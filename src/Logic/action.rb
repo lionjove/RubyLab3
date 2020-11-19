@@ -4,6 +4,8 @@ require_relative 'valera'
 
 # Game action, performed by Valera
 class Action
+  attr_accessor :name, :availability_expression
+
   def initialize(health_expr, mana_expr, cheerfulness_expr, fatigue_expr, money_expr)
     @health_expr = health_expr
     @mana_expr = mana_expr

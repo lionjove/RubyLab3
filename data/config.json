@@ -1,14 +1,26 @@
 {
-	"rules": [{
-		"Пойти на работу": [{
-			"expession": "mana < 50 && fatigue < 10",
-			"actions": [{
-				"health": "0",
-				"mana": "-30",
-				"cheerfulness": "-5",
-				"fatigue": "+70",
-				"money": "+100"
-			}]
-		}]
-	}]
+    "Actions": [
+        {
+            "name": "Пойти на работу",
+            "expression": "mana < 50 && fatigue < 10",
+            "statExpressions": {
+                "health": "0",
+                "mana": "-30",
+                "cheerfulness": "-5",
+                "fatigue": "+70",
+                "money": "+100"
+            }
+        },
+        {
+            "name": "Созерцать природу",
+            "expession": "false",
+            "statExpressions": {
+                "health": "0",
+                "mana": "-10",
+                "cheerfulness": "+1",
+                "fatigue": "+10",
+                "money": "0"
+            }
+        }
+    ]
 }
