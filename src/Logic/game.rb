@@ -10,6 +10,10 @@ class Game
     puts inp
   end
 
+  def print_valera_stats
+    puts 'Here we will print valera hp, money, mana, etc.'
+  end
+
   def game_ended?
     true
   end

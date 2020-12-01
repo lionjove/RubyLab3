@@ -22,6 +22,8 @@ class GameState < StateInterface
   end
 
   def update
+    @game.print_valera_stats
+
     @game.print_actions
 
     puts 'S - save'
