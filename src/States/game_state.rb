@@ -3,26 +3,47 @@
 require_relative 'state_interface'
 require_relative '../Logic/valera'
 require_relative '../Logic/action'
+require_relative '../Logic/game'
 
 # Class for handling game logic
 class GameState < StateInterface
+  def initialize
+    super
+    @game = Game.new
+    @next_state = 'GameState'
+  end
+
   def state_name
     'GameState'
   end
 
   def next_state_name
-    raise 'Virtual function call'
+    @next_state
   end
 
   def update
-    raise 'Virtual function call'
+    @game.print_actions
+
+    puts 'S - save'
+
+    inp = gets.chop
+
+    handle_input(inp) && @game.handle_input(inp)
+
+    @game.game_ended? && @next_state = 'MainMenuState'
   end
 
   def on_state_enter
-    raise 'Virtual function call'
+    puts 'Gamestate:OnStateEnter'
   end
 
   def on_state_leave
-    raise 'Virtual function call'
+    puts 'GameState:OnStateLeave'
+  end
+
+  private
+
+  def handle_input(inp)
+    inp == 'S' && puts('Not available yet!')
   end
 end
