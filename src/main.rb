@@ -19,7 +19,7 @@ states = [
 
 current_state = states[0]
 
-current_state.on_state_enter
+current_state.on_state_enter('')
 
 while current_state.state_name != 'GameExitState'
   current_state.update
@@ -28,8 +28,8 @@ while current_state.state_name != 'GameExitState'
 
   next unless next_state_name != current_state.state_name
 
-  current_state.on_state_leave
+  args = current_state.on_state_leave
 
   current_state = states.find { |e| e.state_name == next_state_name }
-  current_state.on_state_enter
+  current_state.on_state_enter(args)
 end

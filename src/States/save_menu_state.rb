@@ -17,7 +17,7 @@ class SaveMenuState < StateInterface
     # empty for now
   end
 
-  def on_state_enter
+  def on_state_enter(_args)
     puts 'hello world!'
   end
 

@@ -4,6 +4,7 @@ require_relative 'state_interface'
 require_relative '../Logic/valera'
 require_relative '../Logic/action'
 require_relative '../Logic/game'
+require_relative '../Logic/save_loader'
 
 # Class for handling game logic
 class GameState < StateInterface
@@ -35,8 +36,8 @@ class GameState < StateInterface
     @game.game_ended? && @next_state = 'MainMenuState'
   end
 
-  def on_state_enter
-    puts 'Gamestate:OnStateEnter'
+  def on_state_enter(args)
+    SaveLoader.new(args)
   end
 
   def on_state_leave

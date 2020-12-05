@@ -2,10 +2,13 @@
 
 # Class for loading saves
 class SaveLoader
-  attr_accessor :saves
+  def initialize(file_path)
+    parse_json(file_path)
+  end
 
-  def initialize(directory_path)
-    @saves = []
-    parse_saves(directory_path)
+  private
+
+  def parse_json(file_path)
+    # empty
   end
 end

@@ -16,7 +16,7 @@ class GameExitState < StateInterface
     # empty
   end
 
-  def on_state_enter
+  def on_state_enter(_args)
     # empty
   end
 

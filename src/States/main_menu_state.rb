@@ -7,6 +7,7 @@ class MainMenuState < StateInterface
   def initialize
     super
     @next_state = 'MainMenuState'
+    @args = ''
   end
 
   def state_name
@@ -24,12 +25,13 @@ class MainMenuState < StateInterface
     handle_input(input)
   end
 
-  def on_state_enter
-    # empty
+  # main menu state simply passes on arguments
+  def on_state_enter(args)
+    @args = args
   end
 
   def on_state_leave
-    # empty
+    @args
   end
 
   private

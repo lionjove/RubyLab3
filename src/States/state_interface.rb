@@ -14,7 +14,7 @@ class StateInterface
     raise 'Virtual function call'
   end
 
-  def on_state_enter
+  def on_state_enter(_arguments)
     raise 'Virtual function call'
   end
 
