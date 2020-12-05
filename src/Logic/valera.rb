@@ -13,9 +13,9 @@ class Valera
   def update_stats(new_stats)
     @stats = new_stats
 
-    @stats.health.clamp(0, 100)
-    @stats.mana.clamp(0, 100)
-    @stats.cheerfulness.clamp(-10, 10)
-    @stats.fatigue.clamp(0, 100)
+    @stats.health       = @stats.health.clamp(0, 100)
+    @stats.mana         = @stats.mana.clamp(0, 100)
+    @stats.cheerfulness = @stats.cheerfulness.clamp(-10, 10)
+    @stats.fatigue      = @stats.fatigue.clamp(0, 100)
   end
 end

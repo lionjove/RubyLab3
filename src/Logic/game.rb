@@ -20,7 +20,9 @@ class Game
   end
 
   def handle_input(inp)
-    apply_action(@actions[inp]) if inp.positive? && inp < @actions.length
+    action_num = inp.to_i - 1
+    puts action_num
+    apply_action(@actions[action_num]) if action_num >= 0 && action_num < @actions.length
   end
 
   def print_valera_stats

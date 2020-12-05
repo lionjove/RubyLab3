@@ -31,7 +31,7 @@ class GameState < StateInterface
 
     inp = gets.chop
 
-    handle_input(inp) && @game.handle_input(inp)
+    handle_input(inp) || @game.handle_input(inp)
 
     @game.game_ended? && @next_state = 'MainMenuState'
   end
@@ -41,7 +41,7 @@ class GameState < StateInterface
   end
 
   def on_state_leave
-    puts 'GameState:OnStateLeave'
+    @game.game_ended? && puts('Valera died!')
   end
 
   private
