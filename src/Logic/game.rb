@@ -22,7 +22,9 @@ class Game
   def handle_input(inp)
     action_num = inp.to_i - 1
     puts action_num
-    apply_action(@actions[action_num]) if action_num >= 0 && action_num < @actions.length
+    if action_num >= 0 && action_num < @actions.length && @actions[action_num].available(@valera.stats)
+      apply_action(@actions[action_num])
+    end
   end
 
   def print_valera_stats
