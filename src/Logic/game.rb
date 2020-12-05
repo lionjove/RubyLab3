@@ -24,7 +24,12 @@ class Game
   end
 
   def print_valera_stats
-    puts 'Here we will print valera hp, money, mana, etc.'
+    puts 'Valera stats:'
+    puts("Health: #{@valera.stats.health}")
+    puts("Mana: #{@valera.stats.mana}")
+    puts("Cheerfulness: #{@valera.stats.cheerfulness}")
+    puts("Fatigue: #{@valera.stats.fatigue}")
+    puts("Money: #{@valera.stats.money}")
   end
 
   def game_ended?

@@ -4,8 +4,8 @@
 class SaveLoader
   attr_accessor :saves
 
-  def initialize(file_path)
+  def initialize(directory_path)
     @saves = []
-    parse_json(file_path)
+    parse_saves(directory_path)
   end
 end
