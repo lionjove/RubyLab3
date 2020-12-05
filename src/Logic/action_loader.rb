@@ -29,6 +29,6 @@ class ActionLoader
                            stat_expressions['fatigue'],
                            stat_expressions['money'])
     @actions[-1].name = action_node['name']
-    @actions[-1].availability_expression = action_node['expession']
+    @actions[-1].availability_expression = action_node['expression']
   end
 end

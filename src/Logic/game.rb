@@ -14,13 +14,13 @@ class Game
   def print_actions
     counter = 1
     @actions.each do |action|
-      puts("#{counter}. #{action.name}")
+      puts("#{counter}. #{action.name} #{action.available(@valera.stats) ? '' : '(not available)'}")
       counter += 1
     end
   end
 
   def handle_input(inp)
-    puts inp
+    apply_action(@actions[inp]) if inp.positive? && inp < @actions.length
   end
 
   def print_valera_stats
@@ -28,6 +28,12 @@ class Game
   end
 
   def game_ended?
-    true
+    @valera.stats.health <= 0
+  end
+
+  private
+
+  def apply_action(action)
+    @valera.update_stats(action.create_new_stats(@valera.stats))
   end
 end

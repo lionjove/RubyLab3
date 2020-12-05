@@ -20,6 +20,10 @@ class Action
     res_stats
   end
 
+  def available(_stats)
+    eval(@availability_expression) # rubocop:disable Security/Eval
+  end
+
   private
 
   def fill_stats_struct(res_stats, stats)

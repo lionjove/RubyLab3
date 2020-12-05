@@ -13,7 +13,7 @@
         },
         {
             "name": "Созерцать природу",
-            "expession": "false",
+            "expression": "true",
             "statExpressions": {
                 "health": "0",
                 "mana": "-10",
@@ -24,7 +24,7 @@
         },
         {
             "name": "Пить вино и смотреть сериал",
-            "expession": "_stats.money >= 20",
+            "expression": "_stats.money >= 20",
             "statExpressions": {
                 "health": "-5",
                 "mana": "+30",
@@ -35,7 +35,7 @@
         },
         {
             "name": "Сходить в бар",
-            "expession": "_stats.money >= 100",
+            "expression": "_stats.money >= 100",
             "statExpressions": {
                 "health": "-10",
                 "mana": "+60",
@@ -46,7 +46,7 @@
         },
         {
             "name": "Выпить с маргинальными личностями",
-            "expession": "_stats.money >= 150",
+            "expression": "_stats.money >= 150",
             "statExpressions": {
                 "health": "-80",
                 "mana": "+90",
@@ -57,7 +57,7 @@
         },
         {
             "name": "Петь в метро",
-            "expession": "false",
+            "expression": "true",
             "statExpressions": {
                 "health": "0",
                 "mana": "+10",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Спать",
-            "expession": "false",
+            "expression": "true",
             "statExpressions": {
                 "health": "_stats.mana < 30 ? 90 : 0",
                 "mana": "-50",
