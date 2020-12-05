@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 # Class for loading saves
 class SaveLoader
   def initialize(file_path)
@@ -9,6 +11,6 @@ class SaveLoader
   private
 
   def parse_json(file_path)
-    # empty
+    file = File.read(file_path)
   end
 end
