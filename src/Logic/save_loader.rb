@@ -2,6 +2,7 @@
 
 require 'json'
 require_relative 'save'
+require_relative 'valera_stats'
 
 # Class for loading saves
 class SaveLoader
@@ -10,9 +11,7 @@ class SaveLoader
   def initialize(directory_path)
     @saves = []
     Dir.foreach(directory_path) do |file_name|
-      if (File.extname(file_name) == '.save')
-        parse_json(directory_path + '/' + file_name)
-      end
+      parse_json("#{directory_path}/#{file_name}") if File.extname(file_name) == '.save'
     end
   end
 
@@ -25,11 +24,13 @@ class SaveLoader
   end
 
   def create_saves(save_node, file_path)
-    file_name = File.basename(file_path, ".*")
-    @saves << Save.new(file_name, save_node['health'], 
-                                 save_node['mana'], 
-                                 save_node['cheerfulness'], 
-                                 save_node['fatigue'], 
-                                 save_node['money'])
+    file_name = File.basename(file_path, '.*')
+    stats = ValeraStats.new
+    stats.health = save_node['health']
+    stats.mana = save_node['mana']
+    stats.cheerfulness = save_node['cheerfulness']
+    stats.fatigue = save_node['fatigue']
+    stats.money = save_node['money']
+    @saves << Save.new(file_name, stats)
   end
 end

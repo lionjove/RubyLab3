@@ -28,36 +28,34 @@ class SaveMenuState < StateInterface
   end
 
   def on_state_enter(_args)
-    @save_loader = SaveLoader.new(File.dirname(__dir__) + '/../saves')
+    @save_loader = SaveLoader.new("#{File.dirname(__dir__)}/../saves")
   end
 
   def on_state_leave
-    if (@save_num != -1)
-      return @save_loader.saves[@save_num].stats
-    end
+    return @save_loader.saves[@save_num].stats if @save_num != -1
   end
 
   private
 
   def print_menu
     @iter = 1
-    for save in @save_loader.saves
-      puts (@iter.to_s + '. ' + save.name)
+    @save_loader.saves.each do |save|
+      puts("#{@iter}. #{save.name}")
       @iter += 1
     end
-    puts (@iter.to_s + '. Main menu')
+    puts("#{@iter}. Main menu")
     @iter += 1
-    puts (@iter.to_s + '. Exit')
+    puts("#{@iter}. Exit")
   end
 
   def handle_input(inp)
     case inp
-    when "#{@iter - 1}"
+    when (@iter - 1).to_s
       @next_state = 'MainMenuState'
-    when "#{@iter}" 
+    when @iter.to_s
       @next_state = 'GameExitState'
     else
-      if (inp.to_i > 0 && inp.to_i < @iter - 1)
+      if inp.to_i.positive? && inp.to_i < @iter - 1
         @next_state = 'GameState'
         @save_num = inp.to_i - 1
       else

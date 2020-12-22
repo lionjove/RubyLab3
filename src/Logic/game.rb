@@ -6,6 +6,7 @@ require_relative './action_loader'
 # Main class for game
 class Game
   attr_accessor :valera
+
   def initialize
     @valera = Valera.new
     action_loader = ActionLoader.new("#{__dir__}/../../data/config.json")

@@ -43,9 +43,7 @@ class GameState < StateInterface
 
   def on_state_leave
     @game.game_ended? && puts('Valera died!')
-    if (!@game.game_ended?)
-      SaveCreater.new(@game.valera.stats, File.dirname(__dir__) + '/../saves')
-    end
+    SaveCreater.new(@game.valera.stats, "#{File.dirname(__dir__)}/../saves") unless @game.game_ended?
   end
 
   private
