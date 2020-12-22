@@ -49,18 +49,29 @@ class SaveMenuState < StateInterface
   end
 
   def handle_input(inp)
+    puts 'Bad input!' if handle_menu(inp) == false && handle_saves(inp) == false
+  end
+
+  def handle_menu(inp)
+    flag = false
     case inp
     when (@iter - 1).to_s
       @next_state = 'MainMenuState'
+      flag = true
     when @iter.to_s
       @next_state = 'GameExitState'
-    else
-      if inp.to_i.positive? && inp.to_i < @iter - 1
-        @next_state = 'GameState'
-        @save_num = inp.to_i - 1
-      else
-        puts 'Bad input!'
-      end
+      flag = true
     end
+    flag
+  end
+
+  def handle_saves(inp)
+    flag = false
+    if inp.to_i.positive? && inp.to_i < @iter - 1
+      @next_state = 'GameState'
+      @save_num = inp.to_i - 1
+      flag = true
+    end
+    flag
   end
 end
