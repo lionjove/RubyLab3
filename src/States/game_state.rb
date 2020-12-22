@@ -38,13 +38,13 @@ class GameState < StateInterface
   end
 
   def on_state_enter(args)
-    #SaveLoader.new(args)
+    @game.valera.stats = args
   end
 
   def on_state_leave
     @game.game_ended? && puts('Valera died!')
     if (!@game.game_ended?)
-      SaveCreater.new(@game.valera.stats, File.dirname(__dir__).chop.chop + 'aves')
+      SaveCreater.new(@game.valera.stats, File.dirname(__dir__) + '/../saves')
     end
   end
 

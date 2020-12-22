@@ -7,6 +7,7 @@ require_relative '../Logic/save_loader'
 class SaveMenuState < StateInterface
   def initialize
     @iter = 1
+    @save_num = -1
     super
     @next_state = 'SaveMenuState'
   end
@@ -31,7 +32,9 @@ class SaveMenuState < StateInterface
   end
 
   def on_state_leave
-    # empty for now
+    if (@save_num != -1)
+      return @save_loader.saves[@save_num].stats
+    end
   end
 
   private
@@ -54,7 +57,12 @@ class SaveMenuState < StateInterface
     when "#{@iter}" 
       @next_state = 'GameExitState'
     else
-      puts 'Bad input!'
+      if (inp.to_i > 0 && inp.to_i < @iter - 1)
+        @next_state = 'GameState'
+        @save_num = inp.to_i - 1
+      else
+        puts 'Bad input!'
+      end
     end
   end
 end
