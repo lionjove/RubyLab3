@@ -38,7 +38,9 @@ class GameState < StateInterface
   end
 
   def on_state_enter(args)
-    @game.valera.stats = args
+    unless !args.nil?
+      @game.valera.stats = args
+    end
   end
 
   def on_state_leave
